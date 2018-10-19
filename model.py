@@ -34,7 +34,7 @@ class Net(nn.Module):
         self.conv6 = torch.nn.Conv1d(64, 32, kernel_size=12, stride=1, padding=1)
 
         # Fully connected layers
-        self.fc1 = torch.nn.Linear(32*49, 512)
+        self.fc1 = torch.nn.Linear(32*49, 26)
         self.fc2 = torch.nn.Linear(512, 128)
         self.fc3 = torch.nn.Linear(128, 26)
 
@@ -58,9 +58,6 @@ class Net(nn.Module):
         x = self.relu(self.conv6(x))
         x = x.view(x.shape[0], -1)
         x = self.relu(self.fc1(x))
-        x = self.dropout1(x)
-        x = self.relu(self.fc2(x))
-        x = self.relu(self.fc3(x))
         return x
 
     def save(self):

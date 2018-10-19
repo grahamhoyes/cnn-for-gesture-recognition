@@ -45,7 +45,7 @@ def load_data(batch_size):
 def load_model(lr):
     model = Net()
     # loss_func = torch.nn.BCELoss()
-    loss_func = torch.nn.MSELoss()
+    loss_func = torch.nn.MSELoss(reduction="elementwise_mean")
     # loss_func = torch.nn.CrossEntropyLoss()
     # loss_func = torch.nn.NLLLoss()
     # loss_func = torch.nn.SmoothL1Loss()

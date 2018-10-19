@@ -14,7 +14,7 @@ def noisy(features, epsilon=1e-2):
     return noisy_features
 
 class GestureDataset(data.Dataset):
-    def __init__(self, X, y, add_noise=False, noise_epsilon=2e-3, noisy_samples=1e5):
+    def __init__(self, X, y, add_noise=False, noise_epsilon=1e-2, noisy_samples=1e5):
         self.X = [X]
         self.y = [y]
 
