@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rsync -aSHv --exclude 'models.json' --exclude '.git/' --exclude '.idea' ../assignment3/ compute2.grahamhoyes.com:~/mie324/assignment3
