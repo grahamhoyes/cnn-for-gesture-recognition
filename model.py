@@ -64,7 +64,7 @@ class Net(nn.Module):
         x = self.relu(self.conv6(x))
         x = x.view(x.shape[0], -1)
         x = self.relu(self.fc1(x))
-        x = self.dropout2(x)
+        # x = self.dropout2(x)
         x = self.relu(self.fc2(x))
         x = self.relu(self.fc3(x))
         return x
