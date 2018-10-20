@@ -7,8 +7,9 @@ import numpy as np
 from utils import Util
 util = Util()
 
+np.random.seed(util.get_cfg_param('seed'))
+
 def noisy(features, epsilon=1e-2):
-    np.random.seed(util.get_cfg_param('seed'))
     noise = np.random.normal(scale=epsilon, size=features.shape)
     noisy_features = features + noise
     return noisy_features
