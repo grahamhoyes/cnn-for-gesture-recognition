@@ -31,16 +31,16 @@ class Net(nn.Module):
         self.conv3 = torch.nn.Conv1d(64, 128, kernel_size=12, stride=1, padding=1)
         self.conv4 = torch.nn.Conv1d(128, 256, kernel_size=12, stride=1, padding=1)
         self.conv5 = torch.nn.Conv1d(256, 64, kernel_size=24, stride=1, padding=1)
-        # self.conv6 = torch.nn.Conv1d(64, 32, kernel_size=12, stride=1, padding=1)
-        self.conv6 = torch.nn.Conv1d(64, 32, kernel_size=11, stride=1, padding=1)
+        self.conv6 = torch.nn.Conv1d(64, 32, kernel_size=12, stride=1, padding=1)
+        # self.conv6 = torch.nn.Conv1d(64, 32, kernel_size=11, stride=1, padding=1)
 
         # Fully connected layers
-        # self.fc1 = torch.nn.Linear(32*49, 512)
-        # self.fc2 = torch.nn.Linear(512, 128)
-        # self.fc3 = torch.nn.Linear(128, 26)
-        self.fc1 = torch.nn.Linear(32, 32)
-        self.fc2 = torch.nn.Linear(32, 32)
-        self.fc3 = torch.nn.Linear(32, 26)
+        self.fc1 = torch.nn.Linear(32*49, 512)
+        self.fc2 = torch.nn.Linear(512, 128)
+        self.fc3 = torch.nn.Linear(128, 26)
+        # self.fc1 = torch.nn.Linear(32, 32)
+        # self.fc2 = torch.nn.Linear(32, 32)
+        # self.fc3 = torch.nn.Linear(32, 26)
 
         # Drop out of EngSci
         self.dropout1 = torch.nn.Dropout(0.2)
@@ -48,7 +48,7 @@ class Net(nn.Module):
 
         self.maxpool = nn.MaxPool1d(kernel_size=2, stride=2, padding=0)
 
-        self.relu = nn.LeakyReLU(0.2)
+        self.relu = nn.LeakyReLU(0.1)
         self.elu = nn.ELU()
         self.sigmoid = nn.Sigmoid()
 
@@ -58,12 +58,13 @@ class Net(nn.Module):
         x = self.relu(self.conv2(x))
         x = self.relu(self.conv3(x))
         x = self.relu(self.conv4(x))
-        x = self.maxpool(x)
+        # x = self.maxpool(x)
         x = self.relu(self.conv5(x))
-        x = self.maxpool(x)
+        # x = self.maxpool(x)
         x = self.relu(self.conv6(x))
         x = x.view(x.shape[0], -1)
         x = self.relu(self.fc1(x))
+        x = self.dropout2(x)
         x = self.relu(self.fc2(x))
         x = self.relu(self.fc3(x))
         return x
