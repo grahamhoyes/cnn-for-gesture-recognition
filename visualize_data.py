@@ -43,7 +43,7 @@ for c in random.sample(alphabet, 2): # Pick two random classes
 
         j+=1
 
-    plt.show()
+    plt.savefig('figs/visualize_data_%s.png' % c)
 
 
 

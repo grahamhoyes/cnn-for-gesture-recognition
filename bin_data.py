@@ -10,6 +10,8 @@ def load_gesture(c):
     ''' Return an mx100x6 array for each gesture'''
     gesture = []
     for student in os.listdir('data'):
+        if not student.startswith('student'):
+            continue
         for filename in os.listdir(os.path.join('data', student)):
             if filename.split('_')[0] == c:
                 data = np.loadtxt(os.path.join('data', student, filename), delimiter=',')[:, 1:] # Exclude time data
@@ -60,7 +62,8 @@ def plot():
         ax.grid()
         ax.set_title("%s" % c)
 
-    plt.show()
+    # plt.show()
+    plt.savefig('figs/bar.png')
 
 if __name__ == "__main__":
     plot()
