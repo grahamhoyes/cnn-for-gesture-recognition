@@ -49,7 +49,8 @@ def load_model(lr):
     # loss_func = torch.nn.CrossEntropyLoss()
     # loss_func = torch.nn.NLLLoss()
     # loss_func = torch.nn.SmoothL1Loss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+    # optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=0.001)
 
     return model, loss_func, optimizer
 

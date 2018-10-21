@@ -1,18 +1,22 @@
 '''
     Normalize the data, save as ./data/normalized_data.npy
 '''
-
 import numpy as np
 
-instances = np.load('instances.npy')
-instances_normalized = []
+def normalize(instances, output):
+
+    instances = np.load(instances)
+    instances_normalized = []
 
 
-for i in range(len(instances)):
-    mean = instances[i].mean(axis=0)
-    stdev = instances[i].std(axis=0)
+    for i in range(len(instances)):
+        mean = instances[i].mean(axis=0)
+        stdev = instances[i].std(axis=0)
 
-    norm = (instances[i] - mean)/stdev
-    instances_normalized.append(norm)
+        norm = (instances[i] - mean)/stdev
+        instances_normalized.append(norm)
 
-np.save('data/normalized_data.npy', np.array(instances_normalized))
+    np.save(output, np.array(instances_normalized))
+
+if __name__ == "__main__":
+    normalize('instances.npy', 'data/normalized_data.npy')
