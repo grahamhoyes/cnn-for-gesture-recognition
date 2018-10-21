@@ -1,6 +1,9 @@
 ## Notes
 This model was designed to be trained and run on Cuda. Significant memory is required to run the model, so you may be unable to run it on your local computer. All training and predictions were done on a Nvidia Tesla P100 GPU in Google Cloud Compute.
 
+
+The final model is under models/model_bs64_lr0-0001_epochs16_seed69_MSE_0/model.pt
+
 ## Training Instructions
 1. Specify hyperparameters in config.json
 2. Specify model in model.py
