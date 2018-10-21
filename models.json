@@ -1,1 +1,1 @@
-{"best:": "models/model_bs128_lr0-0001_epochs100_seed69_MSE_0", "max_val_accuracy": 0.8425760286225402}
+{"best:": "models/model_bs64_lr0-0001_epochs16_seed69_MSE_0", "max_val_accuracy": 0.8917710196779964}

@@ -1,1 +1,1 @@
-{"batch_size": 64, "learning_rate": 0.0001, "epochs": 100, "validation_split": 0.2, "seed": 69, "cuda": 1, "notes": "_MSE"}
+{"batch_size": 64, "learning_rate": 0.0001, "epochs": 16, "validation_split": 0.2, "seed": 69, "cuda": 1, "notes": "_MSE"}
